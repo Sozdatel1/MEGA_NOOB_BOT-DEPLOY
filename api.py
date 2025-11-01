@@ -1,5 +1,5 @@
 import asyncio
-import json #ilovesexygirls
+import json
 import logging
 import time
 from typing import Any
