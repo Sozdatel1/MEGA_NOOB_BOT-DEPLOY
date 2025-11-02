@@ -303,7 +303,7 @@ matchmaking:
       tc: 0.75+0
     bullet:
       tc: 0+1
-      variant: chess960
+      variant: crazyhouse
       rated: true
     bulle2:
       tc: 3+0
@@ -314,7 +314,7 @@ matchmaking:
     gulugulu:
       tc: 0+1
     guliguli:
-      tc: 10+0
+      tc: 4+0
     hvj:
       tc: 1.5+0
     win:
@@ -324,6 +324,9 @@ matchmaking:
     drum:
       tc: 0.5+1
       variant: chess960
+    asss:
+      tc: 1+0
+      variant: antichess
 
 messages:
   greeting: "Konnichiwa guzaimase! ❤️‍🔥Using help of {engine} Type !help to glimpse my arsenal. Best of luck"
