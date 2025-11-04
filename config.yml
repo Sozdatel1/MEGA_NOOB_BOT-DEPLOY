@@ -220,22 +220,23 @@ online_moves:
     # max_depth: 20
 
   lichess_cloud:
-    enabled: false
+    enabled: true
     priority: 200
-    only_without_book: true
-    min_eval_depth: 20
+    only_without_book: false
+    min_eval_depth: 30
     min_time: 10
     timeout: 3
     use_for_variants: false
     allow_repetitions: true              # Whether the cloud can create repetitions on the board. Can lead to unintentional draws.
     trust_eval: true
     # max_depth: 30
+    min_depth: 30
 
   chessdb:
     enabled: true
     priority: 250
     only_without_book: false
-    allow_repetitions: false              # Whether the chessdb can create repetitions on the board. Can lead to unintentional draws.
+    allow_repetitions: true             # Whether the chessdb can create repetitions on the board. Can lead to unintentional draws.
     trust_eval: true                     # Whether the chessdb eval should be trusted for draw offers and resignations.
     min_time: 10                       
     timeout: 3             
