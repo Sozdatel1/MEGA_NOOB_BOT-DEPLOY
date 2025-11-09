@@ -263,7 +263,7 @@ resign:
   #min_rating: 3000
 
 challenge:
-  concurrency: 1
+  concurrency: 3
   bullet_with_increment_only: false
   max_takebacks: 2
   min_initial: 120
@@ -286,12 +286,13 @@ challenge:
   #  - classical
   human_time_controls:
     - rapid
+    - 10+0
   bot_modes:
-   # - casual
-   # - rated
+    - casual
+    - rated
   human_modes:
-  #  - casual
-   # - rated
+    - casual
+    - rated
 
 matchmaking:
   delay: 80
