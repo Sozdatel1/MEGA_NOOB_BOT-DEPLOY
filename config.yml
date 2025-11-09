@@ -283,6 +283,9 @@ challenge:
     - bullet
     - blitz
     - rapid
+    - 1+1
+    - 2+1
+    - 1+0
   #  - classical
   human_time_controls:
     - rapid
