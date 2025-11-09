@@ -6,7 +6,7 @@ on:
     branches:
       - "main"
     paths:
-      - "botli-linux"
+      - "user_interface.py"
 
 jobs:
   build:
@@ -21,16 +21,29 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Cache pip downloads
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install dependencies & prepare
         run: |
-          chmod +x ./botli-linux
+          pip install --no-cache-dir --prefer-binary -r requirements.txt
           sed -i "s/TokenTimeIsBackBuddyss/${{ secrets.LICHESS_KEY }}/g" config.yml
           chmod +x ./engines/stockfish-ubuntu-x86-64-bmi2 ./engines/fairy-stockfish_x86-64-bmi2 ./engines/stockfish-7-x64-bmi2
 
       - name: Run Bot
         run: |
           echo "Starting bot..."
-          ./botli-linux "tournament VH722Lmw" &
+          python3 -u user_interface.py "matchmaking" "tournament JUT6xRg3" &
           PID=$!
           # Auto-exit before GitHub 6h limit
           ( sleep 20700 && echo "Time up. Killing bot..." && kill -SIGTERM $PID ) &
@@ -42,31 +55,3 @@ jobs:
         run: gh workflow run "Run bot"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
